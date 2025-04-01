@@ -5,26 +5,20 @@ resource "azurerm_resource_group" "rg_main" {
   location = var.primary_location
 }
 
-# create a random string which will be used as a suffix for the storage account name
-resource "random_string" "storage_account_suffix" {
-  length  = 10
+# get the current terraform user context
+data "azurerm_client_config" "current" {
+}
+
+resource "random_string" "key_vault_suffix" {
+  length  = 6
   upper   = false
   special = false
 }
 
-# create a storage account
-resource "azurerm_storage_account" "tf_sa" {
-  name                     = "st${random_string.storage_account_suffix.result}"
-  location                 = var.primary_location
-  resource_group_name      = azurerm_resource_group.rg_main.name
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-}
-
-
-# create a storage container
-resource "azurerm_storage_container" "tf_container" {
-  name                  = "tf-container"
-  storage_account_id    = azurerm_storage_account.tf_sa.id
-  container_access_type = "private"
+resource "azurerm_key_vault" "terraform_kv_101" {
+  name                = "kv-${var.environment_name}-${random_string.key_vault_suffix.result}"
+  location            = var.primary_location
+  resource_group_name = azurerm_resource_group.rg_main.name
+  tenant_id           = data.azurerm_client_config.current.tenant_id # get the tenant id from the current user context
+  sku_name            = "standard"
 }
