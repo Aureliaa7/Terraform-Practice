@@ -8,7 +8,7 @@
 
 #### Navigate to the storage account page and add a role assignment: Storage Blob Data Contributor for the created Service Principal.
 
-### For best security: **Use the least privilege model** and scope access to only what's needed.
+## For best security: **Use the least privilege model** and scope access to only what's needed.
 
 #### 4. In PowerShell run the following commands:
 
@@ -27,6 +27,6 @@
 
 #### 8. Check Azure to see the created resources
 
-### Once the Azure resources needed to store the terraform state files exist(storage container, service principal, needed permissions), skip the first 3 steps.
+## Once the Azure resources needed to store the terraform state files exist(storage container, service principal, needed permissions), skip the first 3 steps.
 
-### [Terraform Backend AAD auth](https://developer.hashicorp.com/terraform/language/backend/azurerm#azure-active-directory)
+## [Terraform Backend AAD auth](https://developer.hashicorp.com/terraform/language/backend/azurerm#azure-active-directory)
