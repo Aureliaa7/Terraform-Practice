@@ -29,4 +29,5 @@
 
 ### Once the Azure resources needed to store the terraform state files exist(storage container, service principal, needed permissions), skip the first 3 steps.
 
-### [Terraform Backend AAD auth](https://developer.hashicorp.com/terraform/language/backend/azurerm#azure-active-directory)
+### References:
+* [Terraform Backend AAD auth](https://developer.hashicorp.com/terraform/language/backend/azurerm#azure-active-directory)
