@@ -4,6 +4,8 @@
 
 Use PowerShell scripts to automate Terraform workflows for multiple environments (`dev`, `prod`) with remote backend configuration in Azure.
 
+Make sure to remove any existing _.terraform_ directory to avoid **Backend configuration changed** error when running the PowerShell script.
+
 ## Script overview
 1. Sets the required environment variables for authenticating with Azure using a Service Principal
 2. Initializes the backend using a per-environment config file
