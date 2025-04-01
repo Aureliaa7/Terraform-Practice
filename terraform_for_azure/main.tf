@@ -20,3 +20,11 @@ resource "azurerm_storage_account" "tf_sa" {
   account_tier             = "Standard"
   account_replication_type = "GRS"
 }
+
+
+# create a storage container
+resource "azurerm_storage_container" "tf_container" {
+  name                  = "tf-container"
+  storage_account_id    = azurerm_storage_account.tf_sa.id
+  container_access_type = "private"
+}
