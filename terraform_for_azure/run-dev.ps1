@@ -19,6 +19,8 @@ $env:ARM_TENANT_ID = Get-AzKeyVaultSecret -VaultName $vaultName -Name $tenantKey
 $env:ARM_CLIENT_ID = Get-AzKeyVaultSecret -VaultName $vaultName -Name $terraformServicePrincipalKey -AsPlainText
 $env:ARM_CLIENT_SECRET = Get-AzKeyVaultSecret -VaultName $vaultName -Name $terraformServicePrincipalSecretKey -AsPlainText
 
+# TF_VAR_service_principal_id will be used im main.tf to create a role assignment
+$env:TF_VAR_service_principal_id = $env:ARM_CLIENT_ID
 
 Write-Host "Subscription ID from Key Vault: $env:ARM_SUBSCRIPTION_ID"
 

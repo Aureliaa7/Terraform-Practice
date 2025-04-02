@@ -18,3 +18,7 @@ Use PowerShell scripts to automate Terraform workflows for multiple environments
 .\run-dev.ps1
 ```
 
+
+### References
+* [Manage secrets from Azure Key Vault using PowerShell](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-powershell)
+* [azurerm_role_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)
